@@ -5,9 +5,7 @@ class Solution(object):
         :type banned: List[str]
         :rtype: str
         """
-        words = re.sub(r'[^\w]',' ',paragraph).lower().split()
-
-        words = [ item for item in words if item not in banned ]
-        counters = collections.Counter(words)
+        words = [word for word in re.sub(r'[^\w]',' ',paragraph).lower().split() if word not in banned]
+        counter = collections.Counter(words)
+        return counter.most_common(1)[0][0]
         
-        return counters.most_common(1)[0][0]
