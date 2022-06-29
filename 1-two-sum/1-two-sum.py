@@ -5,8 +5,10 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        for i in range(len(nums)):
-            if (target-nums[i]) in nums:
-                if nums.index((target-nums[i])) != i:
-                    valid = nums.index((target-nums[i]))
-                    return [i,valid]
+        num_dic = {}
+        for i,num in enumerate(nums):
+            num_dic[num] = i
+            
+        for i,num in enumerate(nums):
+            if (target-num) in num_dic and i != num_dic[target-num]:
+                return[i,num_dic[target-num]]
