@@ -12,11 +12,11 @@ class Solution(object):
         while(left<right):
             max_left , max_right = max(height[left],max_left) , max(height[right],max_right)
             
-            if max_left <= max_right:
+            if max_left <= max_right and max_height >= max_left:
                 vol += max_left - height[left]
                 left +=1
                 
-            else:
+            elif max_left > max_right and max_height >= max_right :
                 vol += max_right - height[right]
                 right -=1 
                 
