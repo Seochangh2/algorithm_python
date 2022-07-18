@@ -16,8 +16,7 @@ class Solution(object):
         store = []
         for i in range(len(s)):
             stack.append(s[i])
-            
-        count = False
+
         while stack :
             tmp = stack.pop()
             if tmp not in mate :
