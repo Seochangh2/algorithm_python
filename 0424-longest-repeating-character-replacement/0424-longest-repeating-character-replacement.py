@@ -7,7 +7,7 @@ class Solution(object):
         """
         left,right = 0,0
         counter = collections.Counter()
-        
+        result = float('-inf')
         for right in range(1,len(s)+1):
             counter[s[right-1]] += 1
             
@@ -17,4 +17,5 @@ class Solution(object):
                 counter[s[left]] -= 1
                 left +=1
                 
-        return right - left
+            result = max(right-left,result)
+        return result
