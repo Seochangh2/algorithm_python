@@ -24,8 +24,7 @@ class Solution(object):
                     while len(wait) < n:
                         wait.append("#")
                     wait.append(t[1])
-            else:
-                wait.append("#")
+
             time += 1
 
         return time
