@@ -5,18 +5,17 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        result = []
+        dq = collections.deque()
         c_max = float('-inf')
-        queue = collections.deque()
+        result = []
+        for i in range(len(nums)):
+            while dq and nums[dq[-1]] <= nums[i]:
+                dq.pop()
 
-        for i,v in enumerate(nums):
-            while queue and nums[queue[-1]] <= v:
-                queue.pop()
-            queue.append(i)
-            
-            if queue[0] == i-k:
-                queue.popleft()
-            
+            dq.append(i)
+            if dq[0] == i-k:
+                dq.popleft()
             if i >= k-1:
-                result.append(nums[queue[0]])
+                result.append(nums[dq[0]])
         return result
+            
