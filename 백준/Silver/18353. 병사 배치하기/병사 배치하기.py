@@ -1,11 +1,15 @@
 N = int(input())
-memory = [1]*(N)
 power = list(map(int,input().split()))
 
 power.reverse()
 
+result = [1]*N
+
 for i in range(1,N):
-    for j in range(0,i):
+    max_num = 0
+    for j in range(i):
         if power[i] > power[j]:
-            memory[i] = max(memory[i],memory[j]+1)
-print(N-max(memory))
+            result[i] = max(result[j]+1,result[i])
+    
+max_cnt = max(result)
+print(N-max_cnt)
