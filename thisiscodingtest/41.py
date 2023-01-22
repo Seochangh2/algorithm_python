@@ -3,7 +3,7 @@ graph = []
 parent = []
 def find_parent(parent,x):
   if parent[x] != x:
-    parent[x] = find_parent(parent,x)
+    parent[x] = find_parent(parent,parent[x])
   return parent[x]
 def union_parent(parent,a,b):
   a_p = find_parent(parent,a)
